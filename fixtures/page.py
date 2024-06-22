@@ -3,7 +3,7 @@ from playwright.sync_api import Browser, BrowserContext, Page, sync_playwright
 from typing import Generator
 import config
 
-@pytest.fixture()
+@pytest.fixture(scope="package")
 def page() -> Generator[Page, None, None]:
     playwright = sync_playwright().start()
     if config.playwright.BROWSER == 'firefox':
