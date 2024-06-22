@@ -1,2 +1,2 @@
 class Url:
-    DOMAIN = 'https://google.com'
+    DOMAIN = 'https://www.automationexercise.com/'
