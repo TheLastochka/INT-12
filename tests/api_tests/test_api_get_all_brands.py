@@ -1,8 +1,3 @@
-# API URL: https://automationexercise.com/api/brandsList
-# Request Method: GET
-# Response Code: 200
-# Response JSON: All brands list
-
 import requests
 import allure
 import config
@@ -12,7 +7,7 @@ brands = [{"id": 1, "brand": "Polo"}, {"id": 2, "brand": "H&M"}, {"id": 3, "bran
 @allure.feature("API Tests")
 @allure.story("GET: All Brands List")
 def test_api_get_all_brands():
-    
+
     with allure.step("Send a GET request to get all brands list"):
         url = f"{config.website.DOMAIN}/api/brandsList"
         response = requests.get(url)
