@@ -3,17 +3,17 @@ from playwright.sync_api import Page, expect
 import config
 from pages.index import IndexPage
 
-class ProductsPage:
+class CartPage:
 
     def open(self, page: Page) -> None:
 
         if config.url.DOMAIN not in page.url:
             IndexPage().open(page)
 
-        with allure.step("Open Products page"):
-            btn = page.get_by_role("link", name="Products")
+        with allure.step("Open Cart page"):
+            btn = page.get_by_role("link", name="Cart")
             expect(btn).to_be_visible()
             btn.click()
-            expect(page.get_by_role("heading", name="ALL PRODUCTS")).to_be_visible()
+            expect(page.locator("#cart_items")).to_be_visible()
 
     
