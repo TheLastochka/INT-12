@@ -1,7 +1,7 @@
 {
     "login_data": [
         {
-            "username": "test_user_8352",
+             "username": "test_user_8352",
             "email": "test_user_8352@mail.ru",
             "password": ";g.GK5QE"
         },
@@ -11,9 +11,14 @@
             "password": "3v^n#XM6"
         },
         {
-            "username": "test_user_335",
+             "username": "test_user_335",
             "email": "test_user_335@mail.ru",
             "password": "?$7h)ScU"
+        },
+        {
+            "username": "test_user_8583",
+            "email": "test_user_8583@mail.ru",
+            "password": "(Y?OU8eG"
         }
     ]
 }

@@ -19,7 +19,11 @@ class Website:
         return random.choice(login_data)
 
     def add_login_data(self, username: str, email: str, password: str) -> None:
-        login_data = self.get_login_data()
+        login_data = self._LOGIN_DATA
+        with open('config/test_data.json', 'r') as file:
+            data = json.load(file)
+            login_data.extend(data['login_data'])
+
         login_data.append({
             'username': username,
             'email': email,
