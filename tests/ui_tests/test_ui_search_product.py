@@ -1,7 +1,6 @@
 import allure
 import pytest
 from playwright.sync_api import Page, expect
-import config
 from pages.products import ProductsPage
 
 @allure.feature("UI Tests")

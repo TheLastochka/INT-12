@@ -7,7 +7,7 @@ class ProductsPage:
 
     def open(self, page: Page) -> None:
 
-        if config.url.DOMAIN not in page.url:
+        if config.website.DOMAIN not in page.url:
             IndexPage().open(page)
 
         with allure.step("Open Products page"):

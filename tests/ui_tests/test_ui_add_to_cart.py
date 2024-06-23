@@ -1,7 +1,5 @@
 import allure
-import pytest
-from playwright.sync_api import Page, expect
-import config
+from playwright.sync_api import Page
 from pages.products import ProductsPage
 from pages.cart import CartPage
 
