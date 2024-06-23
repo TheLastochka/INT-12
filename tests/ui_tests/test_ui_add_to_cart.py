@@ -5,7 +5,7 @@ from pages.cart import CartPage
 
 @allure.feature("UI Tests")
 @allure.story("Add to Cart")
-def test_ui_add_to_cart(page: Page):
+def test_ui_add_to_cart(page: Page, clear_cart=True):
 
     with allure.step("Verify that cart is empty"):
         CartPage().open(page)
@@ -43,11 +43,12 @@ def test_ui_add_to_cart(page: Page):
                     assert product.locator(".cart_description a").inner_text() == products_in_cart[i]["name"]
                     assert product.locator(".cart_price p").inner_text() == products_in_cart[i]["price"]
 
-    with allure.step("Remove products from cart"):
-        for i in range(2):
-            with allure.step(f"Remove product {i+1}"):
-                page.locator(f"#product-{i+1}").locator(".cart_quantity_delete").click()
-                page.wait_for_timeout(1000)
+    if clear_cart:
+        with allure.step("Remove products from cart"):
+            for i in range(2):
+                with allure.step(f"Remove product {i+1}"):
+                    page.locator(f"#product-{i+1}").locator(".cart_quantity_delete").click()
+                    page.wait_for_timeout(1000)
     
-    with allure.step("Verify that cart is empty"):
-        assert page.locator("#cart_info", has_text="Cart is empty!").is_visible()
+        with allure.step("Verify that cart is empty"):
+            assert page.locator("#cart_info", has_text="Cart is empty!").is_visible()
