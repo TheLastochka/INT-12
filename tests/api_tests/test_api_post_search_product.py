@@ -12,9 +12,11 @@ import config
     "Soft Stretch Jeans",
     ])
 def test_api_post_search_product(search_product: str):
-    url = f"{config.website.DOMAIN}/api/searchProduct"
-    payload = {"search_product": search_product}
-    response = requests.post(url, data=payload)
+
+    with allure.step("Send a POST request to search product"):
+        url = f"{config.website.DOMAIN}/api/searchProduct"
+        payload = {"search_product": search_product}
+        response = requests.post(url, data=payload)
 
     with allure.step("Verify the response code"):
         assert response.status_code == 200, f"Failed to search product. Response code: {response.status_code}"

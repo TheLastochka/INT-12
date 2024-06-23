@@ -7,8 +7,10 @@ products = [{"id": 1, "name": "Blue Top", "price": "Rs. 500", "brand": "Polo", "
 @allure.feature("API Tests")
 @allure.story("GET: All Products List")
 def test_api_get_all_products():
-    url = f"{config.website.DOMAIN}/api/productsList"
-    response = requests.get(url)
+
+    with allure.step("Send a GET request to get all products list"):
+        url = f"{config.website.DOMAIN}/api/productsList"
+        response = requests.get(url)
     
     with allure.step("Verify the response code"):
         assert response.status_code == 200, f"Failed to get all products list. Response code: {response.status_code}"
