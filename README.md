@@ -5,6 +5,7 @@
 - Установить зависимости
 ```
 pip3 install -r requirements.txt
+playwright install
 ```
 - Для запуска браузера в headless режиме необходимо добавить `.env` файл в корень проекта:
     - `HEADLESS=True`
